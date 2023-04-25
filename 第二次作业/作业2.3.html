@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // const arr = [[1, 2], [3, 4], [5, 6]];
+        // function fn(array){
+        //     const a = array.reduce((newArr = [], present) => {
+        //         console.log(newArr);
+        //         return newArr.concat(present);
+        //     })
+        //     return a;
+        // }
+        // console.log(fn(arr))
+
+        let arr = [[1, [2, 3], 4], [5, [6, 7], 8, 9]];
+        function fn(arr){
+            return arr.reduce((acc, val) => {
+                if(Array.isArray(val)){
+                    return acc.concat(fn(val));
+                }
+                else{
+                    return acc.concat(val);
+                }
+            }, [])
+            }
+        console.log(fn(arr));
+    </script>
+</body>
+</html>
